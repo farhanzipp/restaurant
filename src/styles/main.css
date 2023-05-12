@@ -42,11 +42,47 @@ nav {
   font-size: 1.5rem;
 }
 
+.nav-drawer {
+  z-index: 9;
+  width: 50vw;
+  height: 100%;
+  padding: 3rem 2rem;
+  background-color: #fff;
+  box-shadow: -1px 0px 1px 0px rgba(0,0,0,0.25);
+  position: fixed;
+  top: 0;
+  right: 0;
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.open {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
 .nav-list {
   width: 100%;
   display: flex;
+  flex-direction: column;
   list-style: none;
 }
+
+.nav-item {
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: var(--dark);
+}
+
+/*
+ * Jumbotron
+ */
 
 .hero {
   display: flex;
@@ -55,6 +91,7 @@ nav {
   min-width: 100%;
   text-align: center;
   background-image: url("../public/images/heros/hero-image_4.jpg");
+  background-size: cover;
   background-position: center;
   background-color: var(--primary-variant);
 }
@@ -82,6 +119,27 @@ main {
 }
 
 /*
+ * Cards
+ */
+
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  margin: 1rem;
+  flex-basis: 100%;
+  display: grid;
+}
+
+.card-img  {
+  height: 200px;
+}
+/*
  * Footer
  */
 
@@ -92,48 +150,50 @@ footer {
   text-align: center;
 }
 
-/*
- * Responsive
- */
-
-@media screen and (max-width: 499px) {
-  .nav {
-    z-index: 9;
-    width: 50vw;
-    height: 100%;
-    padding: 3rem 2rem;
-    background-color: #fff;
-    box-shadow: -2px 0px 2px 0px rgba(0,0,0,0.25);
-    position: fixed;
-    top: 0;
-    right: 0;
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
+/* Tablet */
+@media screen and (min-width: 480px) {
+  .menu-toggle {
+    display: none;
   }
 
-  .open {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
+  .nav-drawer {
+    background-color: transparent;
+    box-shadow: none;
+    position: static;
+    transform: none;
+    padding: unset;
+    width: 100%;
   }
 
   .nav-list {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+
+  .nav-list a {
+    color: var(--light);
   }
 
   .nav-item {
-    font-size: 1rem;
-    text-align: center;
-    padding: 1rem 0;
+    padding: 0px;
   }
 
-  .nav-item a {
-    text-decoration: none;
-    color: var(--dark);
+  .card {
+    flex-basis: calc(50% - 32px);
   }
 }
-@media screen and (max-width: 455px) {}
 
+/* Desktop */
+@media screen and (min-width: 768px) {
+  
+
+  .card {
+    flex-basis: calc(33.33% - 32px);
+  }
+}
+
+/* XL */
 @media screen and (min-width: 1200px) {
   main {
     max-width: 1200px;
@@ -142,4 +202,5 @@ footer {
   .hero {
     min-width: 1000px;
   }
+
 }
