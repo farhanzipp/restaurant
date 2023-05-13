@@ -74,3 +74,10 @@ restaurants.forEach(restaurant => {
     // Append the card element to the card wrapper
     cardWrapper.appendChild(card);
 });
+
+/* actual copyright year for footer */
+const actualYear = new Date().getUTCFullYear();
+const actualYearString = document.createTextNode(actualYear.toString());
+const yearWrapper = document.querySelector('.copyright-year');
+
+yearWrapper.appendChild(actualYearString);

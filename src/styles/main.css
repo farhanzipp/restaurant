@@ -19,6 +19,7 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 12px;
   color: var(--dark);
+  background-color: azure;
 }
 
 /*
@@ -38,11 +39,11 @@ nav {
 
 .nav-brand {
   font-family: 'Lobster', cursive;
-  font-size: 1.5rem;
+  font-size: 44px;
 }
 
 .menu-toggle {
-  font-size: 1.5rem;
+  font-size: 44px;
 }
 
 .nav-drawer {
@@ -73,7 +74,7 @@ nav {
 }
 
 .nav-item {
-  font-size: 1rem;
+  font-size: 1.5rem;
   text-align: center;
   padding: 1rem 0;
 }
@@ -81,6 +82,17 @@ nav {
 .nav-item a {
   text-decoration: none;
   color: var(--dark);
+}
+
+.nav-item a:hover {
+  color: var(--secondary);
+  transition: 0.3s ease-in;
+}
+
+.nav-item a:focus {
+  border-radius: 2px;
+  color: var(--primary-variant);
+  outline: 2px solid var(--secondary-variant);
 }
 
 /*
@@ -91,7 +103,7 @@ nav {
   display: flex;
   align-items: center;
   min-height: 400px;
-  min-width: 100%;
+  width: 100%;
   text-align: center;
   background-image: url("../public/images/heros/hero-image_4.jpg");
   background-size: cover;
@@ -117,6 +129,13 @@ nav {
   font-weight: 300;
 }
 
+.section-title {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--primary);
+}
+
 /*
  * Cards
  */
@@ -127,42 +146,40 @@ nav {
   justify-content: space-between;
 }
 
-.card-wrapper i {
-  font-family: “Font Awesome 5 Free“;
-}
-
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #fff;
   padding: 1rem;
   margin: 1rem;
   flex-basis: 100%;
-  
+  z-index: -1;
 }
 
 .card-img-wrapper {
   position: relative;
   overflow: hidden;
-  z-index: -1;
 }
 
 .card-img  {
   width: 100%;
-  height: auto;
+  height: 150px;
+  object-fit: cover;
 }
 
 .card-label {
   position: absolute;
   top: 8px;
   right: 8px;
-  background-color: #fff;
-  color: #000;
+  background-color: var(--primary);
+  color: var(--light);
   padding: 4px;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: bold;
 }
 
 .card-title {
-  margin: 0.5rem 0;
+  margin: 0.5rem 0 0.2rem 0;
+  font-size: 1rem;
   text-transform: uppercase;
 }
 
@@ -173,6 +190,7 @@ nav {
 .card-rating {
   color: grey;
 }
+
 .star {
   width: 10px;
   height: 10px;
@@ -180,7 +198,7 @@ nav {
 }
 
 .star-half::before {
-    background: linear-gradient(to right, gold 50%, grey 50%);
+    background: linear-gradient(to right, gold 50%, lightgrey 50%);
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
@@ -190,6 +208,14 @@ nav {
 .star-empty {
   color: grey;
 }
+
+.card-description {
+  margin-top: 1rem;
+  font-size: 1rem;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 /*
  * Footer
  */
@@ -246,11 +272,26 @@ footer {
 
 /* XL */
 @media screen and (min-width: 1200px) {
+  nav {
+    padding: 0.5rem 5rem;
+  }
+
   main {
     max-width: 1200px;
+    margin: 0 auto;
   }
 
   .hero {
     min-width: 1000px;
+    height: 450px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+    margin: 2rem 0;
+  }
+  .card-img  {
+    height: 250px;
   }
 }
