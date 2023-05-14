@@ -67,6 +67,13 @@ restaurants.forEach(restaurant => {
     description.textContent = restaurant.description;
     body.appendChild(description);
 
+    // Create the read more on card description element
+    const more = document.createElement('a');
+    more.setAttribute('href', '#');
+    more.classList.add('read-more');
+    more.textContent = '...Read more';
+    body.appendChild(more);
+
     // Append the image and body elements to the card element
     card.appendChild(imgWrapper);
     card.appendChild(body);
