@@ -5,10 +5,16 @@ import { createRating} from '../scripts/rating.js'
 
 /* navbar drawer */
 const menu = document.querySelector('#menu');
+const close = document.querySelector('#close-menu');
 const drawer = document.querySelector('#drawer');
 
 menu.addEventListener('click', function (event) {
     drawer.classList.toggle('open');
+    event.stopPropagation();
+});
+
+close.addEventListener('click', function (event) {
+    drawer.classList.remove('open');
     event.stopPropagation();
 });
 
@@ -27,8 +33,9 @@ const restaurants = data.restaurants;
 
 restaurants.forEach(restaurant => {
     // Create the card element
-    const card = document.createElement('div');
+    const card = document.createElement('a');
     card.classList.add('card');
+    card.href = '#';
 
     // Create the card image element
     const imgWrapper = document.createElement('div');
@@ -88,3 +95,31 @@ const actualYearString = document.createTextNode(actualYear.toString());
 const yearWrapper = document.querySelector('.copyright-year');
 
 yearWrapper.appendChild(actualYearString);
+
+const card = document.querySelector('.card');
+const menuToggler = document.querySelector('.menu-toggle');
+
+card.addEventListener('focus', function() {
+    // Remove .open class from the .nav-drawer element
+    drawer.classList.remove('open');
+});
+
+function openDrawer(){
+    drawer.classList.add('open');
+};
+
+function closeDrawer(){
+    drawer.classList.remove('open');
+};
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Tab') {
+        const card = document.querySelector('.card');
+        const menuToggler = document.querySelector('.menu-toggle');
+
+        card.addEventListener('focus',   closeDrawer());
+
+        card.addEventListener('blur', openDrawer());
+        menuToggler.addEventListener('blur', openDrawer());
+    }
+});
