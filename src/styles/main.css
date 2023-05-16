@@ -23,6 +23,27 @@ body {
 }
 
 /*
+ * Skip to Content
+ */
+
+.skip-link {
+  position: absolute;
+  top: -80px;
+  left: 0;
+  padding: 1rem;
+  background-color: var(--primary-variant);
+  color: var(--dark);
+  font-size: 2rem;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+  margin: 1rem;
+}
+
+/*
  * Navigation
  */
 
@@ -35,6 +56,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   position: fixed;
+  z-index: 9;
 }
 
 .nav-brand {
@@ -162,6 +184,7 @@ nav {
 }
 
 .card {
+  border: 1px solid transparent;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background-color: #fff;
   padding: 1rem;
@@ -169,13 +192,13 @@ nav {
   flex-basis: 100%;
   color: var(--dark);
   text-decoration: none;
-  z-index: -1;
 }
 
 .card:hover {
-  box-shadow: 0 4px 8px 0 var(--primary);
-  border: 2px solid gold;
+  box-shadow: 0 8px 16px 0 var(--dark);
   cursor: pointer;
+  transition: 0.3s ease-in;
+  border-color: var(--primary);
 }
 
 .card-img-wrapper {
@@ -290,6 +313,8 @@ footer {
   .card {
     flex-basis: calc(50% - 32px);
   }
+
+  
 }
 
 /* Desktop */
@@ -304,7 +329,7 @@ footer {
 /* XL */
 @media screen and (min-width: 1200px) {
   nav {
-    padding: 0.5rem 5rem;
+    padding: 0.5rem 20vw;
   }
 
   main {
@@ -314,8 +339,16 @@ footer {
 
   .hero {
     min-width: 1000px;
-    height: 450px;
+    height: 500px;
     margin: 0 auto;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.5rem;
   }
 
   .section-title {

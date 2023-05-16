@@ -3,7 +3,7 @@ import '../styles/main.css';
 import data from '../DATA.json';
 import { createRating} from '../scripts/rating.js'
 
-/* navbar drawer */
+/* Navbar drawer */
 const menu = document.querySelector('#menu');
 const close = document.querySelector('#close-menu');
 const drawer = document.querySelector('#drawer');
@@ -27,16 +27,17 @@ document.addEventListener('click', function (event) {
     }
 });
 
-/* render card contents */
+/* Render card contents */
 const cardWrapper = document.querySelector('.card-wrapper');
 const restaurants = data.restaurants;
 
-restaurants.forEach(restaurant => {
+restaurants.forEach((restaurant, index) => {
     // Create the card element
     const card = document.createElement('a');
     card.classList.add('card');
     card.href = '#';
-
+    card.id = `card-${index + 1}`;
+    
     // Create the card image element
     const imgWrapper = document.createElement('div');
     imgWrapper.classList.add('card-img-wrapper');
@@ -89,19 +90,28 @@ restaurants.forEach(restaurant => {
     cardWrapper.appendChild(card);
 });
 
-/* actual copyright year for footer */
+/* Actual copyright year for footer */
 const actualYear = new Date().getUTCFullYear();
 const actualYearString = document.createTextNode(actualYear.toString());
 const yearWrapper = document.querySelector('.copyright-year');
 
 yearWrapper.appendChild(actualYearString);
 
+/* Accessible function in mobile with keyboard? */
+const nav = document.querySelector('nav');
 const card = document.querySelector('.card');
-const menuToggler = document.querySelector('.menu-toggle');
+
+document.addEventListener('keydown', function(event) {
+    const focusedElement = document.activeElement;
+    const isKeyboardNavigation = event.key === 'Tab';
+
+    if (isKeyboardNavigation && nav.contains(focusedElement)) {
+        openDrawer();
+    }
+});
 
 card.addEventListener('focus', function() {
-    // Remove .open class from the .nav-drawer element
-    drawer.classList.remove('open');
+    closeDrawer();
 });
 
 function openDrawer(){
@@ -112,14 +122,3 @@ function closeDrawer(){
     drawer.classList.remove('open');
 };
 
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Tab') {
-        const card = document.querySelector('.card');
-        const menuToggler = document.querySelector('.menu-toggle');
-
-        card.addEventListener('focus',   closeDrawer());
-
-        card.addEventListener('blur', openDrawer());
-        menuToggler.addEventListener('blur', openDrawer());
-    }
-});
