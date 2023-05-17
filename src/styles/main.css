@@ -66,6 +66,7 @@ nav {
 
 .menu-toggle {
   font-size: 44px;
+  padding: 0 3px;
   color: var(--light);
   text-decoration: none;
 }
@@ -112,6 +113,7 @@ nav {
 }
 
 .nav-item a {
+  padding: 10px 0;
   text-decoration: none;
   color: var(--dark);
 }
@@ -267,7 +269,10 @@ nav {
 .read-more {
   font-size: 0.8rem;
   margin-top: 22px;
+  padding: 1rem 0;
 }
+
+.read-more
 
 /*
  * Footer

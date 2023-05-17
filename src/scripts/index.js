@@ -10,6 +10,7 @@ const drawer = document.querySelector('#drawer');
 
 menu.addEventListener('click', function (event) {
     drawer.classList.toggle('open');
+    event.preventDefault();
     event.stopPropagation();
 });
 
