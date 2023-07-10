@@ -148,13 +148,9 @@ app-hero {
   min-height: 100vh;
 }
 
-.page-not-found {
-  text-align: center;
-  margin-top: 5rem;
-}
-
+.favorite-not-found,
 .page-not-found h1 {
-  margin: 1rem 0;
+  margin: 5rem auto;
 }
 
 /*

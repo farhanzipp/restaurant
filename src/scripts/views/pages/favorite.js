@@ -16,10 +16,15 @@ const Favorite = {
   async afterRender() {
     const restaurants = await FavoriteRestaurantIdb.getAllRestaurant();
     const restaurantContainer = document.querySelector('#card-wrapper');
+    const favoriteNotEmpty = restaurants.length > 0;
 
-    restaurants.forEach((restaurant) => {
-      restaurantContainer.innerHTML += createRestaurantCard(restaurant);
-    });
+    if (favoriteNotEmpty) {
+      restaurants.forEach((restaurant) => {
+        restaurantContainer.innerHTML += createRestaurantCard(restaurant);
+      });
+    } else {
+      document.querySelector('.content').innerHTML = '<h1 class="favorite-not-found">Seems Nothing Here</h1>';
+    }
   },
 };
 

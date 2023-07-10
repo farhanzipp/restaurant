@@ -56,7 +56,7 @@ const createRestaurantCard = (restaurant) => `
         <span class="card-label">${restaurant.city}</span>
     </div>
     <div class="card-title">
-        <h3> 
+        <h3 class="restaurant-title"> 
           <a href="/#/detail/${restaurant.id}">${restaurant.name} </a>
         </h3>
     </div>
@@ -66,13 +66,13 @@ const createRestaurantCard = (restaurant) => `
   </div>
 `;
 
-const createLikeRestaurantButtonTemplate = () => `
+const createLikeRestaurantButton = () => `
   <button aria-label="like this restaurant" id="likeButton" class="like">
      <i class="fa fa-heart-o" aria-hidden="true"></i>
   </button>
 `;
 
-const createUnlikeRestaurantButtonTemplate = () => `
+const createUnlikeRestaurantButton = () => `
   <button aria-label="unlike this restaurant" id="likeButton" class="like">
     <i class="fa fa-heart" aria-hidden="true"></i>
   </button>
@@ -81,6 +81,6 @@ const createUnlikeRestaurantButtonTemplate = () => `
 export {
   createRestaurantDetail,
   createRestaurantCard,
-  createLikeRestaurantButtonTemplate,
-  createUnlikeRestaurantButtonTemplate,
+  createLikeRestaurantButton,
+  createUnlikeRestaurantButton,
 };
