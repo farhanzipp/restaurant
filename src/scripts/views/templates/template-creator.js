@@ -51,7 +51,7 @@ const createRestaurantDetail = (restaurant) => {
 const createRestaurantCard = (restaurant) => `
   <div class="card">
     <div class="card-img-wrapper">
-      <img class="card-img" alt="${restaurant.name}"
+      <img class="card-img lazyload" alt="${restaurant.name} loading="lazy"
            src="${CONFIG.BASE_IMAGE_URL_SM + restaurant.pictureId}">
         <span class="card-label">${restaurant.city}</span>
     </div>

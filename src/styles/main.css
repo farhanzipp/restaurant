@@ -112,7 +112,7 @@ app-hero {
   min-height: 400px;
   width: 100%;
   text-align: center;
-  background-image: url("../public/images/heros/hero-image_4.jpg");
+  /* background-image: url("../public/images/heros/hero-image_4.jpg"); */
   background-size: cover;
   background-position: center;
   background-color: var(--primary-variant);

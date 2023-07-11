@@ -4,6 +4,11 @@ import App from './views/app';
 import swRegister from './utils/sw-register';
 import './components/app-bar';
 import './components/footer-bar';
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+
+const START = 5;
+const NUMBER_OF_IMAGES = 50;
 
 const app = new App({
   button: document.querySelector('#nav-button'),
